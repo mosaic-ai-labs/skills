@@ -1,49 +1,24 @@
-# Mosaic Plugins
+# Mosaic Video Editor
 
-Official plugins for [Mosaic](https://edit.mosaic.so) — AI-powered video editing.
+Official plugin for [Mosaic](https://edit.mosaic.so) — AI-powered video editing from your terminal.
 
-## Install
+Create and run video editing agents, upload media, add captions, motion graphics, clips, voice dubbing, and publish to YouTube, TikTok, Instagram, and more.
+
+## Quick start
+
+The fastest way to get set up is the one-click install at [edit.mosaic.so](https://edit.mosaic.so). It generates your API key and gives you a single command to copy and paste.
+
+## Manual install
 
 ### Claude Code
 
 ```bash
-claude plugin marketplace add usemosaic/mosaic-plugins
-claude plugin install mosaic-video-editor@mosaic-plugins
+# Add the marketplace and install the plugin
+claude plugin marketplace add mosaic-ai-labs/skills
+claude plugin install mosaic-video-editor@mosaic-skills
 ```
 
-### OpenClaw
-
-Install from ClawHub:
-
-```bash
-openclaw skills install mosaic-video-editor
-```
-
-Or install as a plugin bundle:
-
-```bash
-openclaw plugins install mosaic-video-editor --marketplace usemosaic/mosaic-plugins
-```
-
-Then restart the gateway:
-
-```bash
-openclaw gateway restart
-```
-
-## API key
-
-You need a Mosaic API key (prefixed `mk_`) to use this plugin. Get one at [edit.mosaic.so](https://edit.mosaic.so).
-
-**OpenClaw:**
-
-```bash
-openclaw config set env.vars.MOSAIC_API_KEY "mk_your_key_here"
-```
-
-**Claude Code:**
-
-The skill will ask for your API key on first use, or you can set it in `~/.claude/settings.json`:
+Then set your API key in `~/.claude/settings.json` so it's available in every session:
 
 ```json
 {
@@ -53,18 +28,34 @@ The skill will ask for your API key on first use, or you can set it in `~/.claud
 }
 ```
 
-## What you can do
+Get an API key at [edit.mosaic.so](https://edit.mosaic.so) under Automations > API.
 
-- Create and manage video editing agents
-- Run automated video workflows (clips, captions, motion graphics, reframe, etc.)
-- Upload video/audio/image assets
-- Publish to YouTube, TikTok, Instagram, and more
-- Manage credits and billing
-
-## Publishing to ClawHub
+### OpenClaw
 
 ```bash
-npm i -g clawhub
-clawhub login
-clawhub publish ./skills/mosaic-video-editor --slug mosaic-video-editor --name "Mosaic Video Editor" --version 1.2.0 --tags latest
+# Install from ClawHub
+openclaw skills install mosaic-video-editor
+
+# Set your API key
+openclaw config set env.vars.MOSAIC_API_KEY "mk_your_key_here"
+
+# Restart the gateway
+openclaw gateway restart
 ```
+
+Get an API key at [edit.mosaic.so](https://edit.mosaic.so) under Automations > API.
+
+## What you can do
+
+- **Clips** — cut short-form clips from long videos
+- **Captions & Cinematic Captions** — auto-generated subtitles with styling
+- **Motion Graphics** — animated overlays, callouts, kinetic text
+- **Voice Translation** — AI dubbing in 30+ languages
+- **Reframe** — resize for any platform (9:16, 1:1, 16:9)
+- **AI B-Roll, Music, Voiceover** — generate supplementary media
+- **Social Publishing** — post to YouTube, TikTok, Instagram, LinkedIn
+- **Credits & Billing** — check balance, configure auto top-ups
+
+## API reference
+
+Full endpoint docs: [docs.mosaic.so/api](https://docs.mosaic.so/api/introduction)
