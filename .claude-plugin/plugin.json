@@ -1,0 +1,12 @@
+{
+  "name": "mosaic-video-editor",
+  "description": "AI-powered video editing via the Mosaic API. Create agents, run video workflows, manage social accounts, publish content, and upload assets.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Mosaic",
+    "email": "team@usemosaic.ai"
+  },
+  "homepage": "https://edit.mosaic.so",
+  "repository": "https://github.com/usemosaic/mosaic-plugins",
+  "license": "MIT"
+}
