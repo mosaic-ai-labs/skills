@@ -1,5 +1,5 @@
 {
-  "name": "mosaic-plugins",
+  "name": "mosaic-skills",
   "owner": {
     "name": "Mosaic",
     "email": "team@usemosaic.ai"
@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "mosaic-video-editor",
-      "source": ".",
+      "source": "./",
       "description": "AI-powered video editing via the Mosaic API. Create agents, run video workflows, manage social accounts, publish content, and upload assets.",
       "version": "1.2.0",
       "author": {
