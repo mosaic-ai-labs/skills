@@ -39,7 +39,7 @@ Canonical docs:
 ## Credits & billing
 
 - [`GET /credits`](https://docs.mosaic.so/api/credits/get-credits)
-- [`GET /credits/settings`](https://docs.mosaic.so/api/credits/get-credits-settings)
+- [`GET /credits/usage`](https://docs.mosaic.so/api/credits/get-credits-usage)
 - [`POST /credits/settings`](https://docs.mosaic.so/api/credits/post-credits-settings)
 - [`GET /plan`](https://docs.mosaic.so/api/plan/get-plan)
 - [`GET /plan/list`](https://docs.mosaic.so/api/plan/get-plan-list)

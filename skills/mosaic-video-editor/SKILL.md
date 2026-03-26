@@ -42,7 +42,7 @@ Agents are graphs of **nodes** (also called "tiles"). Each node performs one edi
 
 ```
 GET /node_types          — list all node types
-GET /node_type/{id}      — get details for a specific node
+GET /node_type/{node_type_id} — get details for a specific node
 ```
 
 Per-node reference files with IDs and docs links are in the [nodes/](nodes/) directory. Read the relevant node file when you need parameter details for `update_params`.
@@ -59,6 +59,10 @@ Per-node reference files with IDs and docs links are in the [nodes/](nodes/) dir
 - Invalid overrides return `400`.
 - For captions, `caption_font_weight` must be string-typed (e.g. `"700"`).
 - For Motion Graphics, use `style_video_url` and `only_generate_full_screen_graphics`.
+- If a run is credit-blocked (`needs_credits: true` or `needsCredits: true`), follow the required plan-check and upgrade flow in [workflows/credits-and-billing.md](workflows/credits-and-billing.md) before attempting resume.
+- Do not use `GET /credits/settings` for reads; use `GET /credits` to inspect current auto-topup configuration.
+- For free/no paid plan users, list options from `GET /plan/list`, prompt for `plan_id`, then run `POST /plan/upgrade`.
+- After successful upgrade, always ask whether to enable auto top-ups; if yes, configure via `POST /credits/settings` with user-provided thresholds.
 
 ## Endpoint map
 

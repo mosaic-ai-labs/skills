@@ -6,8 +6,9 @@
 2. **Start run:** `POST /agent/{agent_id}/run` with video input payload.
 3. **Poll status:** `GET /agent_run/{run_id}` until `status` is `completed` or `failed`.
 4. **Inspect nodes:** `GET /agent_run/{run_id}/nodes` for per-node status on failure.
-5. **Resume:** `POST /agent_run/{run_id}/resume` to retry failed nodes.
-6. **Cancel:** `POST /agent_run/{run_id}/cancel` to abort a running agent.
+5. **Credit-block handling:** if run/node has `needs_credits: true` (or `needsCredits: true`), follow the required flow in [credits-and-billing.md](credits-and-billing.md) before resuming.
+6. **Resume:** `POST /agent_run/{run_id}/resume` to retry failed/blocked nodes.
+7. **Cancel:** `POST /agent_run/{run_id}/cancel` to abort a running agent.
 
 ## Run payload templates
 
@@ -70,6 +71,17 @@ Pass `update_params` to override node settings at run time:
 ```
 
 Keys in `update_params` must be `agent_node_id` values from `GET /agent/{agent_id}`. Invalid keys return `400`.
+
+## Credit-blocked runs (`needs_credits`)
+
+If `GET /agent_run/{run_id}` or `GET /agent_run/{run_id}/nodes` indicates the run is credit-blocked:
+
+1. Check current plan with `GET /plan`.
+2. If user is free/no paid plan, list options via `GET /plan/list` and run `POST /plan/upgrade`.
+3. Optionally enable auto top-ups via `POST /credits/settings`.
+4. Resume with `POST /agent_run/{run_id}/resume`.
+
+For the full required sequence and user-prompt behavior, use [credits-and-billing.md](credits-and-billing.md).
 
 ## Listing runs
 
