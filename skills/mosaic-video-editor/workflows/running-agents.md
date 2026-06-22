@@ -1,5 +1,8 @@
 # Running Agents
 
+Check the current docs before constructing run payloads or parsing run status:
+[Agent run docs](https://docs.mosaic.so/api/agent-runs/post-agent-run)
+
 ## Procedure
 
 1. **Get agent graph:** `GET /agent/{agent_id}` to find `agent_node_id` values.

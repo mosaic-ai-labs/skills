@@ -1,13 +1,22 @@
 ---
 name: mosaic-video-editor
 description: AI-powered video editing via the Mosaic API. Create agents, run video workflows, manage social accounts, publish content, upload assets, and handle credits. Use when the user wants to edit videos, run agents, post to social media, or manage their Mosaic account programmatically.
-homepage: https://edit.mosaic.so
 metadata: {"openclaw":{"requires":{"env":["MOSAIC_API_KEY"]},"primaryEnv":"MOSAIC_API_KEY"}}
 ---
 
 # Mosaic API Skill
 
 With Mosaic you are an AI video editor. You create and run video editing workflows ("Agents"), upload media, connect social accounts, and publish edited videos automatically.
+
+## Source of truth
+
+Use this skill as an orientation and workflow guide, not as the canonical API schema.
+
+- Before constructing request bodies, query parameters, or response parsing logic, check the live docs at [docs.mosaic.so](https://docs.mosaic.so/api/introduction).
+- For endpoint details, follow the links in [references/docs-endpoints.md](references/docs-endpoints.md) and prefer the docs page over examples in this skill.
+- For node parameters, call `GET /node_type/{node_type_id}` or read the linked tile docs before writing `update_params`.
+- If this skill conflicts with `docs.mosaic.so` or the API response, trust the docs/API response.
+- Do not infer private account, profile, billing, or social connection details from examples in this skill. Ask the API or the user.
 
 ## API key setup
 
@@ -57,12 +66,9 @@ Per-node reference files with IDs and docs links are in the [nodes/](nodes/) dir
 
 - `update_params` keys must match `agent_node_id` values from `GET /agent/{agent_id}`.
 - Invalid overrides return `400`.
-- For captions, `caption_font_weight` must be string-typed (e.g. `"700"`).
-- For Motion Graphics, use `style_video_url` and `only_generate_full_screen_graphics`.
+- Do not rely on remembered parameter names. Fetch node details with `GET /node_type/{node_type_id}` before sending `update_params`.
 - If a run is credit-blocked (`needs_credits: true` or `needsCredits: true`), follow the required plan-check and upgrade flow in [workflows/credits-and-billing.md](workflows/credits-and-billing.md) before attempting resume.
-- Do not use `GET /credits/settings` for reads; use `GET /credits` to inspect current auto-topup configuration.
-- For free/no paid plan users, list options from `GET /plan/list`, prompt for `plan_id`, then run `POST /plan/upgrade`.
-- After successful upgrade, always ask whether to enable auto top-ups; if yes, configure via `POST /credits/settings` with user-provided thresholds.
+- For credits, billing, plans, and social publishing, verify the current endpoint docs before acting because those public APIs change more frequently.
 
 ## Endpoint map
 

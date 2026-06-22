@@ -1,5 +1,8 @@
 # Credits & Billing
 
+Check the current docs before reading or mutating billing state:
+[Credits and plan docs](https://docs.mosaic.so/api/credits/get-credits)
+
 ## Read credit state (balance + auto top-up)
 
 ```
@@ -52,7 +55,7 @@ GET /plan
 GET /plan/list
 ```
 
-Typical plan IDs: `creator`, `creator_annual`, `professional`, `professional_annual`, `pro`.
+Use the returned `id` values from the current API response when asking the user which plan to choose.
 
 [Docs](https://docs.mosaic.so/api/plan/get-plan-list)
 

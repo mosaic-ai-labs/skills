@@ -2,6 +2,9 @@
 
 Agents are reusable video editing workflows (graphs of nodes/tiles).
 
+Check the current docs before constructing agent request bodies:
+[Agents docs](https://docs.mosaic.so/api/agents/get-agents)
+
 ## List agents
 
 ```

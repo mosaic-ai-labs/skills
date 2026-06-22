@@ -47,12 +47,16 @@ Canonical docs:
 
 ## Social publishing
 
-- [`POST /social/{platform}/connect`](https://docs.mosaic.so/api/social/post-social-platform-connect)
-- [`GET /social/{platform}/status`](https://docs.mosaic.so/api/social/get-social-platform-status)
-- [`DELETE /social/{platform}/remove`](https://docs.mosaic.so/api/social/delete-social-platform-remove)
+Use the docs pages below as the source of truth. Do not rely on endpoint examples in this skill when building social request bodies.
+
+- [`GET /social/connections`](https://docs.mosaic.so/api/social/get-social-connections)
+- [`POST /social/connections`](https://docs.mosaic.so/api/social/post-social-connections)
+- [`GET /social/connections/{social_connection_id}`](https://docs.mosaic.so/api/social/get-social-connection)
+- [`DELETE /social/connections/{social_connection_id}`](https://docs.mosaic.so/api/social/delete-social-connection)
 - [`POST /social/post`](https://docs.mosaic.so/api/social/post-social-post)
 - [`GET /social/post/{post_id}`](https://docs.mosaic.so/api/social/get-social-post)
-- [`GET /social/post/track/{tracking_id}`](https://docs.mosaic.so/api/social/get-social-post-track)
+- [`GET /social/post/{post_id}/analytics`](https://docs.mosaic.so/api/social/get-social-post-analytics)
+- [`GET /social/post/{post_id}/comments`](https://docs.mosaic.so/api/social/get-social-post-comments)
 - [`PATCH /social/post/{post_id}`](https://docs.mosaic.so/api/social/patch-social-post)
 - [`DELETE /social/post/{post_id}`](https://docs.mosaic.so/api/social/delete-social-post)
 

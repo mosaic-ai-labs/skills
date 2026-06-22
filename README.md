@@ -59,3 +59,5 @@ Get an API key at [edit.mosaic.so](https://edit.mosaic.so) under Automations > A
 ## API reference
 
 Full endpoint docs: [docs.mosaic.so/api](https://docs.mosaic.so/api/introduction)
+
+The live docs are the source of truth for endpoint shapes, node parameters, supported platforms, and billing behavior. The bundled skill files are orientation guides and should defer to `docs.mosaic.so` whenever the docs differ.

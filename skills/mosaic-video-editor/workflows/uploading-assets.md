@@ -2,6 +2,9 @@
 
 Upload video, audio, or image files to use as inputs in agent runs.
 
+Check the current docs before constructing upload payloads:
+[Asset upload docs](https://docs.mosaic.so/api/asset-management/post-uploads-video-get-upload-url)
+
 ## Procedure
 
 1. **Get upload URL:** `POST /uploads/{type}/get_upload_url` (type: `video`, `audio`, `image`)
